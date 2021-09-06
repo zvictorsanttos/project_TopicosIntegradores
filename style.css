@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*#title {
+  font-family: sans-serif;
+  color: #f0f2f5;
+  text-align: center;
+}
+
+#subtitle {
+  font-family: sans-serif;
+  color: #f0f2f5;
+  text-align: center;*/
+
+fieldset {
+  border: 0;
+}
+
+body {
+  background: #f0f2f5;
+  font-family: sans-serif;
+  /*font-size: 1em;
+  color: #59429d;
+  margin-left: 36%;
+  margin-top: 2%;
+  justify-content: auto;*/
+}
+
+.container {
+  width: min(90vw, 800px);
+  margin: auto;
+}
+
+h2 {
+  margin-top: 3.2rem;
+  margin-bottom: 0.8rem;
+  color: #363f5f;
+  font-weight: normal;
+}
+
+footer {
+  text-align: center;
+  padding: 4rem 0 2rem;
+  color: black;
+}
+header {
+  background: #59429d;
+  padding: 2rem 0rem 10rem;
+  text-align: center;
+}
+
+#logo {
+  color: #fff;
+  font-weight: 100;
+}
+
+#balance {
+  margin-top: -8rem;
+}
+
+#balance h2 {
+  color: white;
+  margin-top: 0;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 0.25rem;
+
+  margin-bottom: 2rem;
+  color: #363f5f;
+}
+
+.card h3 {
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+.card p {
+  font-size: 2rem;
+  line-height: 3rem;
+
+  margin-top: 1rem;
+}
+
+.card.total {
+  background: #ccbbff;
+  color: white;
+}
+
+#data-table {
+  width: 100%;
+  border-spacing: 0 0.5rem;
+  color: #969cb3;
+}
+
+table th {
+  background: white;
+  font-weight: normal;
+  padding: 1rem 2rem;
+  text-align: left;
+}
+table td {
+  background: white;
+  padding: 1rem 2rem;
+  font-weight: normal;
+}
+
+table tbody tr {
+  opacity: 0.7;
+}
+table tbody tr:hover {
+  opacity: 1;
+}
+
+table thead tr th:first-child,
+table tbody tr td:first-child {
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+td.description {
+  color: #363f5f;
+}
+td.income {
+  color: green;
+}
+
+td.expense {
+  color: red;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
