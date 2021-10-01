@@ -1,5 +1,10 @@
 # Escopo do projeto
 
+# Alunos responsáveis
+
+- João Victor da Silva Santos
+- Etebario Neto
+
 # 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:

@@ -7,6 +7,10 @@
 html {
   font-size: 93.75%;
 }
+h1 {
+  font-family: sans-serif;
+  color: white;
+}
 
 /*#title {
   font-family: sans-serif;
