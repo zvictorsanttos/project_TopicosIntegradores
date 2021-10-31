@@ -8,40 +8,40 @@ const Modal = {
   },
 };
 
-const transactions = [
-  {
-    id: 1,
-    description: "Desenvolvimento de site",
-    amount: 500000,
-    date: "13/08/2021",
-  },
-  {
-    id: 2,
-    description: "Hamburguer",
-    amount: -5000,
-    date: "13/08/2021",
-  },
-  {
-    id: 3,
-    description: "Aluguel do apartamento",
-    amount: -120000,
-    date: "10/08/2021",
-  },
-  {
-    id: 4,
-    description: "Computador",
-    amount: -50000,
-    date: "01/08/2021",
-  },
-];
-
 const Transaction = {
-  all: transactions,
+  all: [
+    {
+      description: "Desenvolvimento de site",
+      amount: 500000,
+      date: "13/08/2021",
+    },
+    {
+      description: "Hamburguer",
+      amount: -5000,
+      date: "13/08/2021",
+    },
+    {
+      description: "Aluguel do apartamento",
+      amount: -120000,
+      date: "10/08/2021",
+    },
+    {
+      description: "Computador",
+      amount: -50000,
+      date: "01/08/2021",
+    },
+  ],
 
   add(transaction) {
     Transaction.all.push(transaction);
 
     App.reload();
+  },
+
+  remove(index) {
+    Transaction.all.splice(index, 1);
+
+    //App.reload();
   },
   // Entrada
   incomes() {
@@ -133,6 +133,42 @@ const DOM = {
   },
 };
 
+const Form = {
+  description: document.querySelector("input#description"),
+  amount: document.querySelector("input#amount"),
+  date: document.querySelector("input#date"),
+
+  getValues() {
+    return {
+      description: Form.description.value,
+      amount: Form.amount.value,
+      date: Form.date.value,
+    };
+  },
+
+  validateFields() {
+    const { description, amount, date } = Form.getValues();
+
+    if (
+      description.trim() === "" ||
+      amount.trim() === "" ||
+      date.trim() === ""
+    ) {
+      throw new Error("Obrigatorio Preencher todos os campos");
+    }
+  },
+
+  submit(event) {
+    event.preventDefault();
+
+    try {
+      Form.validateFields();
+    } catch (error) {
+      alert(error.message);
+    }
+  },
+};
+
 const App = {
   init() {
     Transaction.all.forEach((transaction) => {
@@ -150,9 +186,4 @@ const App = {
 
 App.init();
 
-Transaction.add({
-  id: 50,
-  description: "Droga é o brain",
-  amount: 200,
-  date: "25/04/1998",
-});
+//Transaction.remove(3);
