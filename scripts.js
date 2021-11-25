@@ -75,6 +75,16 @@ const Transaction = {
 };
 
 const Utils = {
+  formatAmount(value) {
+    value = Number(value) * 100;
+
+    return value;
+  },
+
+  formatDate(date) {
+    const splittedDate = date.split("");
+  },
+
   formatCurrency(value) {
     const signal = Number(value) < 0 ? " - " : "";
 
@@ -158,11 +168,29 @@ const Form = {
     }
   },
 
+  formatValue() {
+    let { description, amount, date } = Form.getValues();
+
+    amount = Utils.formatAmount(amount);
+
+    date = Utils.formatDate(date);
+  },
+
   submit(event) {
     event.preventDefault();
 
     try {
+      // Verificar validações das informações dos campos
       Form.validateFields();
+
+      // Formatação dos dados
+      Form.formatValues();
+
+      //Form.formatData()
+      // Salvar
+      // Apagar dados após ação
+      // Close modal
+      // Atualizar aplicação
     } catch (error) {
       alert(error.message);
     }
