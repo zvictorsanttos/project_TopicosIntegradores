@@ -82,7 +82,8 @@ const Utils = {
   },
 
   formatDate(date) {
-    const splittedDate = date.split("");
+    const splittedDate = date.split("-");
+    return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`;
   },
 
   formatCurrency(value) {
@@ -174,6 +175,20 @@ const Form = {
     amount = Utils.formatAmount(amount);
 
     date = Utils.formatDate(date);
+
+    return {
+      description,
+      amount,
+      date,
+    };
+  },
+  transactionSave(transaction) {
+    Transaction.add(transaction);
+  },
+  clear() {
+    Form.description.value = "";
+    Form.amount.value = "";
+    Form.date.value = "";
   },
 
   submit(event) {
@@ -182,15 +197,16 @@ const Form = {
     try {
       // Verificar validações das informações dos campos
       Form.validateFields();
-
       // Formatação dos dados
-      Form.formatValues();
-
-      //Form.formatData()
+      const transaction = Form.formatValues();
       // Salvar
+      Transaction.add(transaction);
       // Apagar dados após ação
+      Form.clear();
       // Close modal
+      Modal.close();
       // Atualizar aplicação
+      //App.reload();
     } catch (error) {
       alert(error.message);
     }
